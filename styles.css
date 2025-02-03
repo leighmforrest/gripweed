@@ -173,6 +173,7 @@ nav .brand a:hover {
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(13px, -12px);
 }
+  
 
 /* Dark Mode Styles */
 body.dark-mode {
