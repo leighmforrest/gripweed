@@ -1,5 +1,22 @@
 ---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 
+const pageTitle = "About Me";
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Python",
+  "React",
+  "Django",
+  "Pandas",
+];
+const mastered = false;
+const skillColor = "rebeccapurple";
+const fontWeight = "bold"
+const textCase = "uppercase"
 ---
 
 <html lang="en">
@@ -8,14 +25,22 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
+    <style define:vars={{skillColor, fontWeight, textCase}}>
+      h1 {
+        color: royalblue;
+        font-size: 4rem;
+      }
+
+      .skill {
+        font-weight: var(--textCase);
+        color: var(--skillColor);
+        text-transform: var(--fontWeight);
+      }
+    </style>
   </head>
   <body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
-    </nav>
+    <Header />
     <h1>About Me</h1>
     <h2>...and my new Astro site!</h2>
     <p>
@@ -27,5 +52,16 @@
       This site will update as I complete more of the tutorial, so keep checking
       back and see how my journey is going!
     </p>
+
+    <p>Skills</p>
+
+    <ul>
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+    {mastered && <h3>Mastered</h3>}
+    <Footer />
+    <script>
+      import "../scripts/menu.js"
+    </script>
   </body>
 </html>
