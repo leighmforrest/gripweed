@@ -1,0 +1,73 @@
+---
+import DarkModeButton from "./DarkModeButton.astro";
+import Hamburger from "./Hamburger.astro";
+import SocialBar from "./SocialBar.astro";
+---
+
+<header>
+  <nav class="flex justify-between items-center p-2 bg-amber-600 text-cyan-900 relative">
+    
+    <div class="text-3xl">
+      <h1>Gripweed Consulting</h1>
+    </div>
+
+    <Hamburger />
+
+    <!-- Menu -->
+    <div
+  id="menu"
+  class="absolute md:static md:w-fit md:flex md:bg-amber-600 
+         top-13 left-0 w-full bg-amber-500
+         max-h-0 opacity-0 overflow-hidden
+         transition-all duration-300 ease-in-out
+         md:max-h-none md:opacity-100 md:overflow-visible"
+>
+      <ul
+        class="flex flex-col md:flex-row mb-2 md:mb-0 items-center gap-1 text-2xl"
+      >
+        <li><h2><a href="#">Home</a></h2></li>
+        <li><h2><a href="#">About</a></h2></li>
+        <li><DarkModeButton /></li>
+        <li><SocialBar /></li>
+      </ul>
+    </div>
+
+  </nav>
+</header>
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const menu = document.getElementById("menu");
+
+  const openMenu = () => {
+    menu?.classList.remove("max-h-0", "opacity-0");
+    menu?.classList.add("max-h-screen", "opacity-100");
+    hamburger?.setAttribute("aria-expanded", "true");
+    hamburger?.classList.toggle("open");
+  }
+
+  const closeMenu = () => {
+    menu?.classList.add("max-h-0", "opacity-0");
+    menu?.classList.remove("max-h-screen", "opacity-100");
+    hamburger?.setAttribute("aria-expanded", "false");
+  }
+
+  const toggleMenu = () => {
+    const isOpen = hamburger?.getAttribute("aria-expanded") === "true";
+    isOpen ? closeMenu() : openMenu();
+  }
+
+  hamburger?.addEventListener("click", toggleMenu);
+
+  // Close on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  // Close on outside click
+  document.addEventListener("click", (e) => {
+    if (!menu?.contains(e.target) && !hamburger?.contains(e.target)) {
+      closeMenu();
+    }
+  });
+</script>

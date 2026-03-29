@@ -1,0 +1,18 @@
+---
+import Icon from "./Icon";
+---
+
+<button id="darkModeButton">
+    <Icon name="CiLight" set="ci" size={24} className="hidden dark:block" />
+  <Icon name="CiDark" set="ci" size={24} className="block dark:hidden" /> 
+</button>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const darkModeButton = document.querySelector("#darkModeButton");
+
+    darkModeButton?.addEventListener("click", () => {
+      alert("HELLO!!!!!");
+    });
+  });
+</script>
