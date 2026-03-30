@@ -1,7 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import mainHero from "../images/top.jpg"
 ---
 
 <Layout>
-	<h1>Hello World!</h1>
+	<Hero image={mainHero} title="Web Apps for You">
+		<h2 class="text-2xl m-2">Web Apps for You</h2>
+		<button class="bg-amber-400 dark:bg-amber-600 rounded-xl p-3">Learn More</button>
+	</Hero>
 </Layout>

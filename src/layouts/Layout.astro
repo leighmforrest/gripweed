@@ -12,8 +12,25 @@ import Navbar from '../components/Navbar.astro'
 		<meta name="generator" content={Astro.generator} />
 		<title>Gripweed Consulting</title>
 	</head>
-	<body>
+	<body class="bg-white text-black dark:text-white dark:bg-black">
 		<Navbar />
 		<slot />
 	</body>
 </html>
+
+<script is:inline>
+	const theme = (()=> {
+		if (typeof localStorage !== 'undefined' && localStorage.getItem("theme")) return localStorage.getItem("theme")
+		
+		if (window.matchMedia('(prefers-color-scheme:dark').matches) return 'dark';
+
+		return 'light'
+	})()
+
+	if (theme == 'light') {
+		document.documentElement.classList.remove('dark')
+	} else {
+		document.documentElement.classList.add('dark')
+	}
+	window.localStorage.setItem('theme', theme);
+</script>
