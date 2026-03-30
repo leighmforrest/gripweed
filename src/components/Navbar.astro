@@ -8,7 +8,7 @@ import SocialBar from "./SocialBar.astro";
   <nav class="flex justify-between items-center p-2 bg-amber-600 text-cyan-900 relative">
     
     <div class="text-3xl">
-      <h1>Gripweed Consulting</h1>
+      <a href="/"><h1>Gripweed Consulting</h1></a>
     </div>
 
     <Hamburger />
@@ -25,7 +25,7 @@ import SocialBar from "./SocialBar.astro";
       <ul
         class="flex flex-col md:flex-row mb-2 md:mb-0 items-center gap-1 md:gap-2 text-2xl"
       >
-        <li><h2><a href="#">Home</a></h2></li>
+        <li><h2><a href="/">Home</a></h2></li>
         <li><h2><a href="#">About</a></h2></li>
         <li><DarkModeButton /></li>
         <li><SocialBar /></li>
@@ -67,7 +67,7 @@ import SocialBar from "./SocialBar.astro";
 
   // Close on outside click
   document.addEventListener("click", (e) => {
-    if (!menu?.contains(e.target) && !hamburger?.contains(e.target)) {
+    if (!menu?.contains(e.target as Node) && !hamburger?.contains(e.target as Node)) {
       closeMenu();
     }
   });
