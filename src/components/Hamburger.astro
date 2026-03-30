@@ -1,13 +1,33 @@
 ---
 
 ---
+
 <!-- Hamburger -->
-    <button
-      id="hamburger"
-      class="md:hidden text-2xl"
-      aria-label="Toggle menu"
-      aria-expanded="false"
-      aria-controls="menu"
-    >
-      ☰
-    </button>
+<button
+  class="hamburger md:hidden flex flex-col gap-2 cursor-pointer"
+  id="hamburger"
+  aria-label="Toggle menu"
+  aria-expanded="false"
+  aria-controls="menu"
+>
+  <span class="w-7.5 h-1 transition-all duration-300 ease-in-out bg-cyan-950"
+  ></span>
+  <span class="w-7.5 h-1 transition-all duration-300 ease-in-out bg-cyan-950"
+  ></span>
+  <span class="w-7.5 h-1 transition-all duration-500 ease-in-out bg-cyan-950"
+  ></span>
+</button>
+
+<style>
+  #hamburger.open span:nth-child(1) {
+    transform: translateY(1rem) rotate(45deg);
+  }
+
+  #hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #hamburger.open span:nth-child(3) {
+    transform: translateY(-0.5rem) rotate(-45deg);
+  }
+</style>

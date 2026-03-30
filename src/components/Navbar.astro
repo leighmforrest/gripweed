@@ -23,7 +23,7 @@ import SocialBar from "./SocialBar.astro";
          md:max-h-none md:opacity-100 md:overflow-visible"
 >
       <ul
-        class="flex flex-col md:flex-row mb-2 md:mb-0 items-center gap-1 text-2xl"
+        class="flex flex-col md:flex-row mb-2 md:mb-0 items-center gap-1 md:gap-2 text-2xl"
       >
         <li><h2><a href="#">Home</a></h2></li>
         <li><h2><a href="#">About</a></h2></li>
@@ -43,13 +43,14 @@ import SocialBar from "./SocialBar.astro";
     menu?.classList.remove("max-h-0", "opacity-0");
     menu?.classList.add("max-h-screen", "opacity-100");
     hamburger?.setAttribute("aria-expanded", "true");
-    hamburger?.classList.toggle("open");
+    hamburger?.classList.add("open");
   }
 
   const closeMenu = () => {
     menu?.classList.add("max-h-0", "opacity-0");
     menu?.classList.remove("max-h-screen", "opacity-100");
     hamburger?.setAttribute("aria-expanded", "false");
+    hamburger?.classList.remove("open");
   }
 
   const toggleMenu = () => {
