@@ -1,6 +1,7 @@
 ---
 import projects from "../../data/projects";
 import projectsHero from "../images/projects.jpeg";
+import Icon from "./Icon";
 import Hero from "./Hero.astro";
 import ProjectCard from "./ProjectCard.astro";
 ---
@@ -17,9 +18,13 @@ import ProjectCard from "./ProjectCard.astro";
         webUrl={project.webUrl}
       />)}
     </div>
-    <div class="flex gap-1.5">
-      <button type="button" id="projects-prev" class="disabled:hidden">Prev</button>
-      <button type="button" id="projects-next" class="disabled:hidden">Next</button>
+    <div class="flex gap-1.5 pt-2">
+      <button type="button" id="projects-prev" class="disabled:hidden">
+        <Icon name="FaForward" set="fa6"/>
+      </button>
+      <button type="button" id="projects-next" class="disabled:hidden">
+        <Icon name="FaBackward" set="fa6"/>
+      </button>
     </div>
   </section>
 </>
