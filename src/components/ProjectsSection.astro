@@ -1,0 +1,62 @@
+---
+import projects from "../../data/projects";
+import Hero from "./Hero.astro";
+import mainHero from "../images/top.jpg";
+import ProjectCard from "./ProjectCard.astro";
+---
+
+<>
+  <Hero image={mainHero} title="projects" />
+  <section id="projects" class="flex flex-col items-center min-h-90vh p-6">
+    <h2 class="text-2xl text-center m-2">Projects</h2>
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 w-full gap-6"
+      id="projects-carousel"
+    >
+      {projects.map((project) => <ProjectCard name={project.name} icons={project.icons} />)}
+    </div>
+    <div class="flex gap-1.5">
+      <button type="button" id="projects-prev">Prev</button>
+      <button type="button" id="projects-next">Next</button>
+    </div>
+  </section>
+</>
+
+<script>
+  const cards = document.querySelectorAll(".project-card");
+  const perPage = 3;
+  let currentPage = 0;
+
+  const totalPages = Math.max(1, Math.ceil(cards.length / perPage));
+
+  const projectsPrev = document.querySelector("#projects-prev");
+  const projectsNext = document.querySelector("#projects-next");
+
+  const render = () => {
+    const start = currentPage * perPage;
+    const end = start + perPage;
+
+    cards.forEach((item, index) => {
+      item.classList.toggle("hidden", !(index >= start && index < end));
+    });
+
+    projectsPrev.disabled = currentPage === 0;
+    projectsNext.disabled = currentPage === totalPages;
+
+    projectsPrev?.addEventListener("click", () => {
+      if (currentPage > 0) {
+        currentPage--;
+        render();
+      }
+    });
+
+    projectsNext?.addEventListener("click", () => {
+      if (currentPage < totalPages - 1) {
+        currentPage++;
+        render();
+      }
+    });
+  };
+
+  render();
+</script>
