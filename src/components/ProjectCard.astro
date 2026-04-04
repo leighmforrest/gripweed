@@ -1,5 +1,5 @@
 ---
-const { name, imageUrl, icons } = Astro.props;
+const { name, imageUrl, githubUrl, webUrl,  icons } = Astro.props;
 import { Image } from "astro:assets";
 import Icon from "./Icon";
 ---
@@ -20,12 +20,12 @@ rounded-xl overflow-hidden shadow-xl"
     <h3 class="text-3xl pt-1">{name}</h3>
     <div class="flex justify-between items-center w-full p-2">
         <span class="flex gap-2">
-        <a href="http://www.github.com">
+        <a href={githubUrl}>
             <Icon name="FaGithub" set="fa6" />
         </a>
-        <a href="http://www.github.com">
+        {webUrl && <a href={webUrl}>
             <Icon name="CiGlobe" set="ci" />
-        </a>
+        </a>}
     </span>
     <span class="flex gap-2">
       {icons?.map((icon) => (<Icon name={icon.name} set={icon.set}/>))}

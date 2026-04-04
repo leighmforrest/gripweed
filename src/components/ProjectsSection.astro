@@ -1,23 +1,25 @@
 ---
 import projects from "../../data/projects";
+import projectsHero from "../images/projects.jpeg";
 import Hero from "./Hero.astro";
-import mainHero from "../images/top.jpg";
 import ProjectCard from "./ProjectCard.astro";
 ---
 
 <>
-  <Hero image={mainHero} title="projects" />
-  <section id="projects" class="flex flex-col items-center min-h-90vh p-6">
+  <Hero image={projectsHero} title="projects" />
+  <section id="projects" class="flex flex-col items-center min-h-90vh p-6 text-amber-600">
     <h2 class="text-2xl text-center m-2">Projects</h2>
     <div
       class="grid grid-cols-1 md:grid-cols-3 w-full gap-6"
       id="projects-carousel"
     >
-      {projects.map((project) => <ProjectCard name={project.name} icons={project.icons} />)}
+      {projects.map((project) => <ProjectCard name={project.name} icons={project.icons} githubUrl={project.githubUrl} 
+        webUrl={project.webUrl}
+      />)}
     </div>
     <div class="flex gap-1.5">
-      <button type="button" id="projects-prev">Prev</button>
-      <button type="button" id="projects-next">Next</button>
+      <button type="button" id="projects-prev" class="disabled:hidden">Prev</button>
+      <button type="button" id="projects-next" class="disabled:hidden">Next</button>
     </div>
   </section>
 </>
@@ -40,23 +42,25 @@ import ProjectCard from "./ProjectCard.astro";
       item.classList.toggle("hidden", !(index >= start && index < end));
     });
 
+    // ✅ correct disabling
     projectsPrev.disabled = currentPage === 0;
-    projectsNext.disabled = currentPage === totalPages;
-
-    projectsPrev?.addEventListener("click", () => {
-      if (currentPage > 0) {
-        currentPage--;
-        render();
-      }
-    });
-
-    projectsNext?.addEventListener("click", () => {
-      if (currentPage < totalPages - 1) {
-        currentPage++;
-        render();
-      }
-    });
+    projectsNext.disabled = currentPage === totalPages - 1;
   };
+
+  // ✅ attach listeners ONCE
+  projectsPrev?.addEventListener("click", () => {
+    if (currentPage > 0) {
+      currentPage--;
+      render();
+    }
+  });
+
+  projectsNext?.addEventListener("click", () => {
+    if (currentPage < totalPages - 1) {
+      currentPage++;
+      render();
+    }
+  });
 
   render();
 </script>

@@ -16,6 +16,7 @@ const projects: Project[] = [
     name: "seed",
     imageUrl: "https://placehold.co/600x600/png",
     githubUrl: "https://github.com/leighmforrest/seed",
+    webUrl: "https://gripweed-seed.netlify.app/",
     icons: [
       { name: "FaPython", set: "fa6" },
       { name: "FaReact", set: "fa6" },
@@ -23,13 +24,11 @@ const projects: Project[] = [
     ],
   },
   {
-    name: "seed 2",
+    name: "YouTube",
     imageUrl: "https://placehold.co/600x600/png",
-    githubUrl: "https://github.com/leighmforrest/seed",
+    githubUrl: "https://github.com/leighmforrest/youtube",
     icons: [
       { name: "FaPython", set: "fa6" },
-      { name: "FaReact", set: "fa6" },
-      { name: "BsTypescript", set: "bs" },
     ],
   },
   {
