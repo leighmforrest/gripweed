@@ -1,14 +1,11 @@
 ---
 const { name, imageUrl, icons } = Astro.props;
-console.log(icons);
 import { Image } from "astro:assets";
 import Icon from "./Icon";
-
-console.log(icons)
 ---
 
 <div
-  class="project-card bg-gray-50 dark:bg-gray-800 flex flex-col items-center aspect-3/4 md:aspect-3/4
+  class="project-card bg-gray-50 dark:bg-gray-800 flex flex-col items-center
 rounded-xl overflow-hidden shadow-xl"
 >
   <div class="w-full">
@@ -19,10 +16,21 @@ rounded-xl overflow-hidden shadow-xl"
       class="w-full h-full object-cover aspect-square"
     />
   </div>
-  <div class="flex flex-col gap-0.5">
+  <div class="flex flex-col gap-0.5 w-full p-2 justify-center items-center">
     <h3 class="text-3xl pt-1">{name}</h3>
-    <div class="flex">
+    <div class="flex justify-between items-center w-full p-2">
+        <span class="flex gap-2">
+        <a href="http://www.github.com">
+            <Icon name="FaGithub" set="fa6" />
+        </a>
+        <a href="http://www.github.com">
+            <Icon name="CiGlobe" set="ci" />
+        </a>
+    </span>
+    <span class="flex gap-2">
       {icons?.map((icon) => (<Icon name={icon.name} set={icon.set}/>))}
+    </span>
     </div>
+    
   </div>
 </div>

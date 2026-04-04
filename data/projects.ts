@@ -1,6 +1,6 @@
 type Icon = {
   name: string;
-  set: "fa6" | "ci";
+  set: "fa6" | "ci" | "bs";
 };
 
 type Project = {
@@ -19,6 +19,7 @@ const projects: Project[] = [
     icons: [
       { name: "FaPython", set: "fa6" },
       { name: "FaReact", set: "fa6" },
+      { name: "BsTypescript", set: "bs" },
     ],
   },
   {
@@ -28,6 +29,7 @@ const projects: Project[] = [
     icons: [
       { name: "FaPython", set: "fa6" },
       { name: "FaReact", set: "fa6" },
+      { name: "BsTypescript", set: "bs" },
     ],
   },
   {
@@ -37,6 +39,7 @@ const projects: Project[] = [
     icons: [
       { name: "FaPython", set: "fa6" },
       { name: "FaReact", set: "fa6" },
+      { name: "BsTypescript", set: "bs" },
     ],
   },
   {
@@ -46,6 +49,7 @@ const projects: Project[] = [
     icons: [
       { name: "FaPython", set: "fa6" },
       { name: "FaReact", set: "fa6" },
+      { name: "BsTypescript", set: "bs" },
     ],
   },
 ];
