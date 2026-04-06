@@ -1,0 +1,29 @@
+---
+import Hero from "./Hero.astro"
+import ContactForm from "./ContactForm.astro"
+import contactHero from "../images/contact.jpeg"
+---
+<div id="contact">
+<Hero image={contactHero} title="projects">
+    <h2 class="text-2xl m-2">Get In Touch</h2>
+    <button
+      id="contactButton"
+      class="bg-amber-400 dark:bg-amber-600 rounded-xl p-3">Learn More</button
+    >
+    </Hero>
+<section
+  id="contact-content"
+  class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 items-stretch min-h-100"
+>
+  <div class="min-h-100 md:h-full flex flex-col justify-start items-center">
+    <h2 class="text-2xl text-center m-6">Contact Us</h2>
+    <p>
+      If you would like to get in touch for building a project for you or would like to make a query to us,
+      use the adjacent form and we will be in contact shortly.
+    </p>
+  </div>
+  <div class="h-full">
+    <ContactForm />
+  </div>
+</section>
+<>

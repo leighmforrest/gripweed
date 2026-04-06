@@ -18,7 +18,6 @@ const projects: Project[] = [
     githubUrl: "https://github.com/leighmforrest/seed",
     webUrl: "https://gripweed-seed.netlify.app/",
     icons: [
-      { name: "FaPython", set: "fa6" },
       { name: "FaReact", set: "fa6" },
       { name: "BsTypescript", set: "bs" },
     ],
