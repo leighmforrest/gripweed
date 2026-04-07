@@ -16,11 +16,13 @@
         Name
       </label>
       <input
-        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-600 leading-tight focus:outline-none focus:shadow-outline"
+        class="form-input"
         id="name"
+        name="name"
         type="text"
         placeholder="John Doe"
       />
+      <p class="error-message hidden text-red-500 text-xs italic"></p>
     </div>
     <div class="mb-6">
       <label
@@ -30,24 +32,40 @@
         Email
       </label>
       <input
-        class="shadow appearance-none border border-red-500 dark:bg-gray-700 rounded w-full py-2 px-3 text-gray-700 dark:text-gray-600 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        class="form-input"
         id="email"
+        name="email"
         type="email"
         placeholder="john@example.com"
       />
-      <p class="text-red-500 text-xs italic">Please enter a email.</p>
+      <p class="error-message hidden text-red-500 text-xs italic"></p>
     </div>
     <div class="mb-4">
       <textarea
         name="message"
         id="message"
-        class="w-full border rounded-md dark:bg-gray-700 p-1 min-h-20 resize-none"
-      ></textarea>
+        class="form-input min-h-24 leading-relaxed resize-none"></textarea>
+      <p class="error-message hidden text-red-500 text-xs italic"></p>
+    </div>
+    <!-- honeypot field to catch bots.  -->
+    <div class="mb-4">
+      <label for="emmie" class="sr-only">Real users skip this field</label>
+      <input
+        id="emmie"
+        type="text"
+        name="emmie"
+        class="sr-only"
+        tabindex="-1"
+      />
+      <span class="text-gray-700"
+        >This contact form is for professional inquiries only.</span
+      >
     </div>
     <div class="flex items-center justify-between">
       <button
         class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         type="submit"
+        disabled
       >
         Contact Us
       </button>
@@ -79,36 +97,148 @@
 </div>
 
 <script>
+  import {
+    showError,
+    clearError,
+    showValid,
+    removeClasses,
+  } from "../scripts/contactForm";
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const endpoint = import.meta.env.PUBLIC_API_URL;
+
+  // Valid fields for the form
+  const fields = {
+    name: { length: { min: 5, max: 64 } },
+    email: {
+      length: { min: 5, max: 64 },
+      pattern: {
+        regex: emailRegex,
+        message: "please enter a valid email address.",
+      },
+    },
+    message: { length: { min: 5, max: 500 } },
+  };
+
   document.addEventListener("DOMContentLoaded", () => {
     // panels
     const form = document.querySelector("#contact-form") as HTMLFormElement;
+    const button = form.querySelector("button");
     const loading = document.querySelector<Element>("#contact-loading");
     const success = document.querySelector<Element>("#contact-success");
     const failure = document.querySelector<Element>("#contact-failure");
     const panels = [form, loading, success, failure];
-
-    // form fields
-    const name = form?.querySelector<HTMLInputElement>("#name");
-    const email = form?.querySelector<HTMLInputElement>("#email");
-    const message = form?.querySelector("#message");
 
     const showPanel = (panel: Element) => {
       panels.forEach((el) => el?.classList.remove("active"));
       panel.classList.add("active");
     };
 
-    // Don't forget to show the form right away
-    showPanel(form)
+    // FIELD VALIDATION
+    const validateField = (field: string) => {
+      const input: HTMLInputElement = form.querySelector(
+        `[name="${field}"]`,
+      ) as HTMLInputElement;
+      const value = input.value.trim();
 
-    form?.addEventListener("submit", (e) => {
+      clearError(input);
+
+      // Check for input
+      if (!value) {
+        showError(input, "This field is required.");
+        return false;
+      }
+
+      // Check for min and max length
+      const { min, max } = fields[field].length;
+      if (value.length < min) {
+        showError(input, `Input must have a minimum of ${min} characters.`);
+        return false;
+      }
+
+      if (value.length > max) {
+        showError(input, `Input has exceeded its maximum length.`);
+        return false;
+      }
+
+      // Check for regex
+      if (fields[field].pattern && !fields[field].pattern.regex.test(value)) {
+        showError(input, fields[field].pattern.message);
+        return false;
+      }
+
+      showValid(input);
+      return true;
+    };
+
+    // Validate for button
+    const updateButton = () => {
+      const allValid = Object.keys(fields).every((field) => {
+        const input = form.querySelector(
+          `[name="${field}"]`,
+        ) as HTMLInputElement;
+        const value = input.value.trim();
+        if (!value || value.length < fields[field].length.min) return false;
+        if (value.length > fields[field].length.max) return false;
+        if (fields[field].pattern && !fields[field].pattern.regex.test(value))
+          return false;
+        return true;
+      });
+      button!.disabled = allValid ? false : true;
+      button!.classList.toggle("opacity-50", !allValid);
+      button!.classList.toggle("cursor-not-allowed", !allValid);
+    };
+
+    // attach validation to onblur
+    Object.keys(fields).forEach((field) => {
+      const input = form.querySelector(`[name="${field}"]`);
+      if (!input) return;
+      input.addEventListener("blur", () => validateField(field));
+      input.addEventListener("input", updateButton);
+    });
+
+    form?.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      // Honeypot check
+      const honeypot = form.querySelector("[name='emmie']") as HTMLInputElement;
+      if (honeypot?.value) return;
+
+      const formData = new FormData(form);
+
       showPanel(loading);
-      alert(name?.value);
+
+      Object.keys(fields).forEach((field) => {
+        const input = form.querySelector(`[name="${field}"]`);
+        removeClasses(input);
+      });
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error("Request failed");
+        }
+        form.reset();
+        updateButton();
+        showPanel(success);
+      } catch (error) {
+        showPanel(failure);
+        return; // 👈 important: stop execution
+      }
 
       setTimeout(() => {
-        showPanel(success);
-      }, 1000);
+        showPanel(form);
+      }, 2500);
     });
+
+    // THE FUNCTIONS THAT MUST RUN RIGHT AWAY
+    showPanel(form);
+    updateButton();
   });
 </script>
 <style>
