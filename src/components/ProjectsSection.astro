@@ -7,7 +7,13 @@ import ProjectCard from "./ProjectCard.astro";
 ---
 
 <>
-  <Hero image={projectsHero} title="projects" />
+  <Hero image={projectsHero} title="projects">
+    <h2 class="text-2xl m-2 text-amber-400">Projects We've Built</h2>
+    <button
+      id="projectsButton"
+      class="bg-amber-400 dark:bg-amber-600 rounded-xl p-3">Learn More</button
+    >  
+  </Hero>
   <section
     id="projects"
     class="flex flex-col items-center min-h-90vh p-6 text-amber-600"
@@ -40,6 +46,13 @@ import ProjectCard from "./ProjectCard.astro";
 </>
 
 <script>
+  import ctaScrollIntoView from "../scripts/ctaScrollIntoView"
+  
+  const actionButton = document.querySelector("#projectsButton") as HTMLButtonElement;
+  const targetSection = document.querySelector("#projects")
+
+  ctaScrollIntoView(actionButton, targetSection)
+
   const cards = document.querySelectorAll(".project-card");
   const perPage = 3;
   let currentPage = 0;

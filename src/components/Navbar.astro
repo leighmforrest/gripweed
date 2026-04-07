@@ -39,6 +39,19 @@ import SocialBar from "./SocialBar.astro";
 <script>
   const hamburger = document.getElementById("hamburger");
   const menu = document.getElementById("menu");
+  const links = document.querySelectorAll("a");
+
+  links.forEach(link => {
+    link.addEventListener("click", (e)=> {
+      e.preventDefault();
+
+      const href = link.getAttribute("href") as string;
+      const targetSection = document.querySelector(href) ;
+
+      if (href.includes("#")) targetSection?.scrollIntoView({behavior: "smooth"});
+      closeMenu()
+    })
+  })
 
   const openMenu = () => {
     menu?.classList.remove("max-h-0", "opacity-0");

@@ -27,3 +27,11 @@ import contactHero from "../images/contact.jpeg"
   </div>
 </section>
 <>
+<script>
+  import ctaScrollIntoView from "../scripts/ctaScrollIntoView"
+  
+  const actionButton = document.querySelector("#contactButton") as HTMLButtonElement;
+  const targetSection = document.querySelector("#contact-content")
+
+  ctaScrollIntoView(actionButton, targetSection)
+</script>
