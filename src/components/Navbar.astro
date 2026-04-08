@@ -43,7 +43,8 @@ import SocialBar from "./SocialBar.astro";
 <script>
   const hamburger = document.getElementById("hamburger");
   const menu = document.getElementById("menu");
-  const links = document.querySelectorAll("a");
+  const links = Array.from(menu.querySelectorAll("ul li a"))
+  .filter(link => !link.closest("#social-bar"));
 
   links.forEach(link => {
     link.addEventListener("click", (e)=> {

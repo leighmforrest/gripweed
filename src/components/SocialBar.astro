@@ -2,14 +2,27 @@
 import Icon from "./Icon";
 ---
 
-<ul class="flex gap-2 items-center justify-center md:ml-1 mb-3 md:mb-0">
+<ul
+  id="social-bar"
+  class="flex gap-2 items-center justify-center md:ml-1 mb-3 md:mb-0"
+>
   <li>
-    <Icon name="FaUpwork" set="fa6" size={16}/>
+    <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer">
+      <Icon name="FaUpwork" set="fa6" size={16} />
+    </a>
   </li>
   <li>
+    <a
+      href="https://www.linkedin.com"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <Icon name="FaLinkedinIn" set="fa6" size={16} />
-    </li>
-    <li>
-        <a><Icon name="FaRedditAlien" set="fa6" size={16} /></a>
-    </li>
+    </a>
+  </li>
+  <li>
+    <a href="https://www.reddit.com" target="_blank" rel="noopener noreferrer"
+      ><Icon name="FaRedditAlien" set="fa6" size={16} /></a
+    >
+  </li>
 </ul>

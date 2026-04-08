@@ -20,10 +20,10 @@ rounded-xl overflow-hidden shadow-xl"
     <div class="card-title pt-1">{name}</div>
     <div class="flex justify-between items-center w-full p-2  text-vermillion dark:text-dark-special-yellow">
         <span class="flex gap-2">
-        <a href={githubUrl}>
+        <a href={githubUrl} target="_blank"  rel="noopener noreferrer">
             <Icon name="FaGithub" set="fa6" />
         </a>
-        {webUrl && <a href={webUrl}>
+        {webUrl && <a href={webUrl} target="_blank">
             <Icon name="CiGlobe" set="ci" />
         </a>}
     </span>
