@@ -1,7 +1,16 @@
 ---
 import { Image } from "astro:assets";
+import Hero from "./Hero.astro";
+import mainHero from "../images/top.jpg";
 ---
-
+<>
+<Hero image={mainHero} title="Web Apps for You">
+    <div class="hero-text m-2">Web Apps and Data for You</div>
+    <button
+      id="heroButton"
+      class="bg-special-yellow dark:bg-dark-special-yellow text-vermillion dark:text-dark-vermillion rounded-xl p-3">Learn More</button
+    >
+  </Hero>
 <section
   id="about"
   class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 items-stretch min-h-100"
@@ -27,3 +36,4 @@ import { Image } from "astro:assets";
     />
   </div>
 </section>
+<>

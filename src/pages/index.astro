@@ -1,20 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
 import AboutSection from "../components/AboutSection.astro";
-import mainHero from "../images/top.jpg";
 import ProjectsSection from "../components/ProjectsSection.astro";
 import ContactSection from "../components/ContactSection.astro";
 ---
 
 <Layout>
-  <Hero image={mainHero} title="Web Apps for You">
-    <h2 class="text-2xl m-2">Web Apps for You</h2>
-    <button
-      id="heroButton"
-      class="bg-amber-400 dark:bg-amber-600 rounded-xl p-3">Learn More</button
-    >
-  </Hero>
   <AboutSection />
   <ProjectsSection />
   <ContactSection />
@@ -23,7 +14,7 @@ import ContactSection from "../components/ContactSection.astro";
 <script>
   import ctaScrollIntoView from "../scripts/ctaScrollIntoView";
   const heroButton = document.querySelector("#heroButton") as HTMLButtonElement;
-  const about = document.querySelector("#about");
+  const about = document.querySelector("#about") as Element;
 
   ctaScrollIntoView(heroButton, about);
 

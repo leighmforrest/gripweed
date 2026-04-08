@@ -3,10 +3,11 @@ import DarkModeButton from "./DarkModeButton.astro";
 import Hamburger from "./Hamburger.astro";
 import SocialBar from "./SocialBar.astro";
 ---
-
 <header>
   <nav
-    class="flex justify-between items-center p-2 bg-amber-600 text-cyan-900 relative"
+    class="flex justify-between items-center p-2 relative
+    bg-vermillion text-special-yellow dark:bg-dark-vermillion dark:text-special-yellow
+    "
   >
     <div class="text-3xl">
       <a href="/"><h1>Gripweed Consulting</h1></a>
@@ -17,14 +18,16 @@ import SocialBar from "./SocialBar.astro";
     <!-- Menu -->
     <div
       id="menu"
-      class="absolute z-12 md:static md:w-fit md:flex md:bg-amber-600
-         top-13 left-0 w-full bg-amber-500
+      class="absolute z-12 md:static md:w-fit md:flex
+         top-13 left-0 w-full
          max-h-0 opacity-0 overflow-hidden
          transition-all duration-300 ease-in-out
-         md:max-h-none md:opacity-100 md:overflow-visible"
+         md:max-h-none md:opacity-100 md:overflow-visible border-t-dark-vermillion"
     >
       <ul
-        class="flex flex-col md:flex-row mb-2 md:mb-0 items-center gap-1 md:gap-2 text-2xl"
+        class="flex flex-col md:flex-row mb-4 md:mb-0 items-center gap-1 md:gap-2 text-2xl
+        bg-vermillion dark:bg-dark-vermillion
+        "
       >
         <li><h2><a href="/">Home</a></h2></li>
         <li><h2><a href="#about">About</a></h2></li>
