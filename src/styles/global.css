@@ -42,7 +42,7 @@ nav h6 {
 .card-title {
   font-family: "Hammer Fat", sans-serif;
   font-size: 1.875rem;
-  @apply text-special-yellow dark:text-dark-special-yellow;
+  @apply text-vermillion dark:text-dark-special-yellow;
 }
 
 .form-input {
