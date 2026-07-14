@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BlogPostCard from "../components/BlogPostCard.astro";
+const allPosts = Object.values(import.meta.glob("./posts/*.md", {eager: true}));
+---
+
+<Layout>
+  <section
+    class="relative w-full h-[90vh] text-black"
+  >
+    <ul>
+      {allPosts.map((post: any) =>(<BlogPostCard 
+        image={post.frontmatter.image}
+        title={post.frontmatter.title} url={post.url}/>))}
+    </ul>
+  </section>
+</Layout>
