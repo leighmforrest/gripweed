@@ -30,9 +30,10 @@ import SocialBar from "./SocialBar.astro";
         "
       >
         <li><h2><a href="/">Home</a></h2></li>
-        <li><h2><a href="#about">About</a></h2></li>
-        <li><h2><a href="#projects">Projects</a></h2></li>
-        <li><h2><a href="#contact">Contact</a></h2></li>
+        <li><h2><a href="/#about">About</a></h2></li>
+        <li><h2><a href="/#projects">Projects</a></h2></li>
+        <li><h2><a href="/blog">Blog</a></h2></li>
+        <li><h2><a href="/#contact">Contact</a></h2></li>
         <li><DarkModeButton /></li>
         <li><SocialBar /></li>
       </ul>
@@ -47,16 +48,19 @@ import SocialBar from "./SocialBar.astro";
   .filter(link => !link.closest("#social-bar"));
 
   links.forEach(link => {
-    link.addEventListener("click", (e)=> {
-      e.preventDefault();
+  link.addEventListener("click", () => {
+    const href = link.getAttribute("href");
 
-      const href = link.getAttribute("href") as string;
-      const targetSection = document.querySelector(href) ;
+    if (href?.startsWith("#")) {
+      event.preventDefault();
+      document.querySelector(href)?.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
 
-      if (href.includes("#")) targetSection?.scrollIntoView({behavior: "smooth"});
-      closeMenu()
-    })
-  })
+    closeMenu();
+  });
+});
 
   const openMenu = () => {
     menu?.classList.remove("max-h-0", "opacity-0");
