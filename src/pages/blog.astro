@@ -6,7 +6,7 @@ const allPosts = Object.values(import.meta.glob("./posts/*.md", {eager: true}));
 
 <Layout>
   <section
-    class="relative w-full h-[90vh] text-black"
+    class="relative w-full h-[90vh] text-black dark:text-white"
   >
     <ul>
       {allPosts.map((post: any) =>(<BlogPostCard 
