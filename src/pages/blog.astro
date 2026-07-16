@@ -1,17 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import BlogPostCard from "../components/BlogPostCard.astro";
-const allPosts = Object.values(import.meta.glob("./posts/*.md", {eager: true}));
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("blog");
 ---
 
 <Layout>
   <section
-    class="relative w-full h-[90vh] text-black dark:text-white"
+    class="relative w-full h-[90vh] p-6 text-black dark:text-white"
   >
     <ul>
       {allPosts.map((post: any) =>(<BlogPostCard 
-        image={post.frontmatter.image}
-        title={post.frontmatter.title} url={post.url}/>))}
+        image={post.data.image}
+        title={post.data.title} url={`/posts/${post.id}`}/>))}
     </ul>
   </section>
 </Layout>

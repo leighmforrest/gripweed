@@ -1,0 +1,11 @@
+---
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+---
+<Layout>
+  <section class="relative w-full h-[90vh] p-3 md:p-6 text-black dark:text-white">
+    <h2 class="text-4xl text-center p-6">{frontmatter.title}</h2>
+    <slot />
+    <a href="/blog" class="hover:text-blue-500 p-3">Go Back</a>
+  </section>
+</Layout>
