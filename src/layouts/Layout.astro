@@ -14,9 +14,11 @@ import Footer from "../components/Footer.astro";
     <meta name="generator" content={Astro.generator} />
     <title>Gripweed Consulting</title>
   </head>
-  <body class="bg-white text-black dark:text-white dark:bg-black">
+  <body class="bg-white text-black dark:text-white dark:bg-black min-h-screen flex flex-col">
     <Navbar />
-    <slot />
+    <main class="flex-1 min-h-0">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>

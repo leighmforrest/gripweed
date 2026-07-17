@@ -1,8 +1,24 @@
 ---
-const { title, url, image } = Astro.props;
+import Image from "astro/components/Image.astro";
+const { image, title, url } = Astro.props;
 ---
 
-<li>
-  <img src={image.url} alt={image.alt} width="250" />
-  <a href={url}>{title}</a>
-</li>
+<div
+  class="project-card bg-gray-50 dark:bg-gray-800 flex flex-col items-center
+rounded-xl overflow-hidden shadow-xl"
+>
+  <div class="w-full">
+    <a href={url}
+      >{title}
+      <Image
+        src={image.url}
+        alt={image.alt}
+        inferSize={true}
+        class="w-full h-full object-cover aspect-square"
+      />
+    </a>
+  </div>
+  <div>
+    <h3 class="text-2xl p-2"><a href={url}>{title}</a></h3>
+  </div>
+</div>

@@ -14,7 +14,7 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   image: {
-    domains: ['placehold.co'],
+    domains: ["placehold.co", "docs.astro.build"],
   },
   integrations: [react(), expressiveCode()]
 });
