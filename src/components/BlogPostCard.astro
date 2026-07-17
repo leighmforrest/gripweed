@@ -4,12 +4,11 @@ const { image, title, url } = Astro.props;
 ---
 
 <div
-  class="project-card bg-gray-50 dark:bg-gray-800 flex flex-col items-center
+  class="post-card bg-gray-50 dark:bg-gray-700 flex flex-col items-center
 rounded-xl overflow-hidden shadow-xl"
 >
   <div class="w-full">
-    <a href={url}
-      >{title}
+    <a href={url}>
       <Image
         src={image.url}
         alt={image.alt}
