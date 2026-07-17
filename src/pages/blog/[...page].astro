@@ -34,17 +34,21 @@ const { page } = Astro.props;
     <div class="flex items-center justify-center mt-6">
       {
         page.url.prev && (
-          <a href={page.url.prev}>
-            <Icon name="FaBackward" set="fa6" />
-          </a>
+          <h4>
+            <a href={page.url.prev}>
+              <Icon name="FaBackward" set="fa6" />
+            </a>
+          </h4>
         )
       }
 
       {
         page.url.next && (
-          <a href={page.url.next}>
-            <Icon name="FaForward" set="fa6" color=""/>
-          </a>
+          <h4>
+            <a href={page.url.next}>
+              <Icon name="FaForward" set="fa6" />
+            </a>
+          </h4>
         )
       }
     </div>
