@@ -2,10 +2,14 @@
 import Hero from "./Hero.astro";
 import ContactForm from "./ContactForm.astro";
 import contactHero from "../images/contact.jpeg";
+import contactHeroMobile from "../images/contactMobile.jpeg"
 ---
 
 <div id="contact">
-  <Hero image={contactHero} title="Get in touch! Old City Kava Co. photo by Leigh Michael Forrest">
+  <Hero 
+    desktopHero={contactHero} 
+    mobileHero={contactHeroMobile}
+    title="Get in touch! Old City Kava Co. photo by Leigh Michael Forrest">
     <div class="hero-text m-2">Get In Touch</div>
     <button
       id="contactButton"

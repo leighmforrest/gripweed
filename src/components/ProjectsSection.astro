@@ -1,5 +1,6 @@
 ---
 import projects from "../../data/projects";
+import projectsMobileHero from "../images/projectsMobile.jpeg";
 import projectsHero from "../images/projects.jpeg";
 import Icon from "./Icon";
 import Hero from "./Hero.astro";
@@ -8,7 +9,9 @@ import ProjectCard from "./ProjectCard.astro";
 
 <>
   <section id="projects">
-  <Hero image={projectsHero} title="Projects build - Dilworth Park photo by Leigh Michael Forrest">
+  <Hero desktopHero={projectsHero}
+    mobileHero={projectsMobileHero}
+    title="Projects build - Dilworth Park photo by Leigh Michael Forrest">
     <div class="hero-text m-2">Projects We've Built</div>
     <button
       id="projectsButton"

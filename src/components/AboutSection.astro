@@ -2,11 +2,14 @@
 import { Image } from "astro:assets";
 import Hero from "./Hero.astro";
 import mainHero from "../images/top.jpeg";
+import mobileMainHero from "../images/topMobile.jpeg"
+import sideImage from "../images/sideImage.jpeg";
 ---
 
 <>
   <Hero
-    image={mainHero}
+    desktopHero={mainHero}
+    mobileHero={mobileMainHero}
     title="Web Apps for You! Photo taken at Caphe Roasters by Leigh Michael Forrest"
   >
     <div class="hero-text m-2">Web Apps and Data for You</div>
@@ -35,9 +38,9 @@ import mainHero from "../images/top.jpeg";
     </div>
     <div class="h-full">
       <Image
-        src="https://placehold.co/600"
+        src={sideImage}
         inferSize={true}
-        alt="About Gripweed Consulting"
+        alt="About Gripweed Consulting: Race St. Pier image by Leigh Michael Forrest"
         class="w-full h-full object-cover"
       />
     </div>
