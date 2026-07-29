@@ -3,37 +3,43 @@ import { Image } from "astro:assets";
 import Hero from "./Hero.astro";
 import mainHero from "../images/top.jpeg";
 ---
+
 <>
-<Hero image={mainHero} title="Web Apps for You! Photo by Leigh Michael Forrest">
+  <Hero
+    image={mainHero}
+    title="Web Apps for You! Photo taken at Caphe Roasters by Leigh Michael Forrest"
+  >
     <div class="hero-text m-2">Web Apps and Data for You</div>
     <button
       id="heroButton"
-      class="bg-special-yellow dark:bg-dark-special-yellow text-vermillion dark:text-dark-vermillion rounded-xl p-3">Learn More</button
+      class="bg-special-yellow dark:bg-dark-special-yellow text-vermillion dark:text-dark-vermillion rounded-xl p-3"
+      >Learn More</button
     >
   </Hero>
-<section
-  id="about"
-  class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 items-stretch min-h-100"
->
-  <div class="min-h-100 md:h-full flex flex-col justify-start items-center">
-    <h2 class="text-2xl text-center m-6">About Us</h2>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, animi
-      obcaecati minus totam nam nesciunt voluptate magnam expedita voluptas
-      earum, eveniet iure sint! Soluta quo, ex veniam amet autem similique est
-      magnam sit quae mollitia aliquam earum odio sequi, beatae facere provident
-      quasi laborum accusamus enim! Beatae, magni ab! Necessitatibus cupiditate
-      omnis officiis enim quod aut voluptates nulla, vero non numquam quibusdam
-      optio. Explicabo!
-    </p>
-  </div>
-  <div class="h-full">
-    <Image
-      src="https://placehold.co/600"
-      inferSize={true}
-      alt="About Gripweed Consulting"
-      class="w-full h-full object-cover"
-    />
-  </div>
-</section>
+  <section
+    id="about"
+    class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 items-stretch min-h-100"
+  >
+    <div class="min-h-100 md:h-full flex flex-col justify-start items-center">
+      <h2 class="text-2xl text-center m-6">About Us</h2>
+      <p>
+        I build full-stack web applications with Python, Django, and React —
+        from database design and backend logic to polished user interfaces.
+        Along the way, I work with tools like Docker, PostgreSQL, Pandas, and
+        Python’s data stack to build applications that turn ideas and
+        information into useful software. I’m based in Philadelphia, working
+        independently with clients locally and remotely. I bring the same
+        attention to detail and craftsmanship found in the city’s neighborhoods
+        and small businesses to the software I build.
+      </p>
+    </div>
+    <div class="h-full">
+      <Image
+        src="https://placehold.co/600"
+        inferSize={true}
+        alt="About Gripweed Consulting"
+        class="w-full h-full object-cover"
+      />
+    </div>
+  </section>
 </>
