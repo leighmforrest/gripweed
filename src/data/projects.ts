@@ -10,6 +10,7 @@ type Icon = {
 type Project = {
   name: string;
   imageUrl: ImageMetadata;
+  altText: string;
   githubUrl: string;
   webUrl?: string;
   icons: Icon[];
@@ -19,7 +20,9 @@ const projects: Project[] = [
   {
     name: "hello-drfx",
     imageUrl: helloDrfxImage,
+    altText: "Race Street Pier photo by Leigh Michael Forrest",
     githubUrl: "https://github.com/leighmforrest/hello-drfx",
+    webUrl: "https://hello.gripweedconsulting.com/",
     icons: [
       { name: "FaPython", set: "fa6" },
       { name: "FaReact", set: "fa6" },
@@ -29,6 +32,7 @@ const projects: Project[] = [
   {
     name: "seed",
     imageUrl: seedImage,
+    altText: "Penn Treaty Park photo by Leigh Michael Forrest",
     githubUrl: "https://github.com/leighmforrest/seed",
     webUrl: "https://gripweed-seed.netlify.app/",
     icons: [
@@ -39,6 +43,7 @@ const projects: Project[] = [
   {
     name: "YouTube",
     imageUrl: youtubeImage,
+    altText: "Delaware and Colombia Lampost photo by Leigh Michael Forrest",
     githubUrl: "https://github.com/leighmforrest/youtube",
     icons: [{ name: "FaPython", set: "fa6" }],
   },

@@ -1,5 +1,5 @@
 ---
-const { name, imageUrl, githubUrl, webUrl,  icons } = Astro.props;
+const { name, imageUrl, altText, githubUrl, webUrl,  icons } = Astro.props;
 import { Image } from "astro:assets";
 import Icon from "./Icon";
 ---
@@ -12,7 +12,7 @@ rounded-xl overflow-hidden shadow-xl"
     <Image
       src={imageUrl}
       inferSize={true}
-      alt="About Gripweed Consulting"
+      alt={altText}
       class="w-full h-full object-cover aspect-square"
     />
   </div>
