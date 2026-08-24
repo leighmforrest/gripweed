@@ -48,9 +48,9 @@ nav h1, nav h2, nav h3, nav h4, nav h5, nav h6 {
 }
 
 @layer components {
-  .prose code::before,
-  .prose code::after {
-    content: none;
+  .prose :where(code)::before,
+  .prose :where(code)::after {
+    content: none !important;
   }
 }
 
