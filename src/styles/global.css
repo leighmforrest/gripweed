@@ -15,22 +15,12 @@
   --color-dark-special-yellow: #E0A806;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Hammer Fat", sans-serif;
   @apply text-vermillion dark:text-dark-special-yellow;
 }
 
-nav h1,
-nav h2,
-nav h3,
-nav h4,
-nav h5,
-nav h6 {
+nav h1, nav h2, nav h3, nav h4, nav h5, nav h6 {
   @apply text-special-yellow dark:text-dark-special-yellow;
 }
 
@@ -49,7 +39,6 @@ nav h6 {
   @apply w-full px-3 py-2 border rounded shadow text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500;
 }
 
-
 .input-error {
   @apply border-red-500 ring-red-500;
 }
@@ -63,4 +52,16 @@ nav h6 {
   .prose code::after {
     content: none;
   }
+}
+
+.prose table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.expressive-code,
+.expressive-code pre {
+  max-width: 100%;
+  overflow-x: auto;
 }

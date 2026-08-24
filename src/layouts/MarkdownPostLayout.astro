@@ -4,22 +4,16 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout>
-  <section
-    class="relative w-full min-h-[90vh] p-3 md:p-6 text-black dark:text-white"
-  >
-    <article
-      class="prose prose-lg dark:prose-invert mx-auto max-w-4x
-           prose-code:before:content-none prose-code:after:content-none
+  <section class="relative w-full min-h-[90vh] p-3 md:p-6 text-black dark:text-white">
+  <article
+    class="prose prose-lg dark:prose-invert mx-auto max-w-4xl
            prose-p:my-6
            prose-headings:mt-10 prose-headings:mb-5
-           "
-    >
-      <h1 class="text-center text-4xl">{frontmatter.title}</h1>
-      <slot />
-    </article>
-
-    <a href="/blog" class="block mx-auto max-w-4xl p-3 hover:text-blue-500">
-      Go Back
-    </a>
-  </section>
+           prose-h2:text-3xl
+           prose-h3:text-2xl"
+  >
+    <h1 class="text-center !text-4xl">{frontmatter.title}</h1>
+    <slot />
+  </article>
+</section>
 </Layout>
