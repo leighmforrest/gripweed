@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-
 @font-face {
   font-family: 'Hammer Fat';
   src: url("../assets/hammerfat.ttf");
@@ -57,4 +56,11 @@ nav h6 {
 
 .input-valid {
   @apply border-green-500 ring-green-500;
+}
+
+@layer components {
+  .prose code::before,
+  .prose code::after {
+    content: none;
+  }
 }
