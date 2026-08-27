@@ -2,9 +2,8 @@
 title: "Test That Jawn: React TS Edition"
 pubDate: 2026-08-20
 author: "Leigh Michael Forrest"
-image:
-  url: "https://docs.astro.build/default-og-image.png"
-  alt: "The Astro logo against a dark background with planets."
+image: "../images/blog/placeholder.webp"
+altText: "Placeholder image for the MSW testing post"
 ---
 Frontend testing has a lot of moving pieces, so I will show you how to build a working setup
 incrementally. In this post I will show you how to test React TypeScript code with the tools of the trade: Vitest, React Testing Library, and user-event.

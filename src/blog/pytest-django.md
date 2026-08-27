@@ -2,9 +2,8 @@
 title: "Test That Jawn: pytest-django"
 pubDate: 2026-08-20
 author: "Leigh Michael Forrest"
-image:
-  url: "https://docs.astro.build/default-og-image.png"
-  alt: "The Astro logo against a dark background with planets."
+image: "../images/blog/placeholder.webp"
+altText: "Placeholder image for the MSW testing post"
 ---
 
 Automated testing is an important part of writing software in any language. But it is often poorly explained in documentation and in tutorials. In this post, I will explain how to test a Django application using pytest, a popular test runner, and pytest-django, a Python package used for testing Django projects in Python. Pytest handles the testing machinery, and pytest-django

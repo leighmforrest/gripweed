@@ -25,6 +25,7 @@ const { page } = Astro.props;
           <BlogPostCard
             image={post.data.image}
             title={post.data.title}
+            altText={post.data.altText}
             url={`/blog/${post.id}`}
           />
         ))

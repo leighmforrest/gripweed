@@ -2,9 +2,8 @@
 title: "Test That Jawn: MSW"
 pubDate: 2026-08-21
 author: "Leigh Michael Forrest"
-image:
-  url: "https://docs.astro.build/default-og-image.png"
-  alt: "The Astro logo against a dark background with planets."
+image: "../images/blog/placeholder.webp"
+altText: "Placeholder image for the MSW testing post"
 ---
 ```bash
 npm i -D msw
