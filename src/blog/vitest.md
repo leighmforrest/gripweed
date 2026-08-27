@@ -2,8 +2,8 @@
 title: "Test That Jawn: React TS Edition"
 pubDate: 2026-08-20
 author: "Leigh Michael Forrest"
-image: "../images/blog/placeholder.webp"
-altText: "Placeholder image for the MSW testing post"
+image: "../images/blog/vitest.jpeg"
+altText: 'Photo by <a href="https://unsplash.com/@uxindo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">UX Indonesia</a> on <a href="https://unsplash.com/photos/person-in-blue-long-sleeve-shirt-using-black-laptop-computer-5QiGvmyJTsc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
 ---
 Frontend testing has a lot of moving pieces, so I will show you how to build a working setup
 incrementally. In this post I will show you how to test React TypeScript code with the tools of the trade: Vitest, React Testing Library, and user-event.

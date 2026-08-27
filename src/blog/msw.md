@@ -2,8 +2,8 @@
 title: "Test That Jawn: MSW"
 pubDate: 2026-08-21
 author: "Leigh Michael Forrest"
-image: "../images/blog/placeholder.webp"
-altText: "Placeholder image for the MSW testing post"
+image: "../images/blog/msw.jpeg"
+altText: 'Photo by <a href="https://unsplash.com/@yinji_f?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Yin Fang</a> on <a href="https://unsplash.com/photos/power-lines-and-telephone-poles-against-a-blue-sky-u-dsCdJv45I?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
 ---
 ```bash
 npm i -D msw
